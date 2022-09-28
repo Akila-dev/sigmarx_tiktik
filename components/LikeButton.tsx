@@ -9,6 +9,7 @@ interface IProps {
   handleDislike: () => void;
   likes: any[];
 }
+
 const LikeButton: NextPage<IProps> = ({ likes, handleLike, handleDislike }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const { userProfile }: any = useAuthStore();
