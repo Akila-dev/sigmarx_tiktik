@@ -2,6 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: [
+      "www.google.com",
+      "media.graphassets.com",
+      "lh3.googleusercontent.com",
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
