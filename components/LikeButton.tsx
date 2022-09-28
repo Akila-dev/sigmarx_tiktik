@@ -47,9 +47,6 @@ const LikeButton: NextPage<IProps> = ({ likes, handleLike, handleDislike }) => {
           </p>
         </div>
       )}
-      {/* <p className="text-xs lg:text-sm font-semibold text-black absolute left-[50%] p-1 top-[50%] translate-x-[-50%] translate-y-[-50%] rounded-full">
-        {likes?.length || 0}
-      </p> */}
     </div>
   );
 };
