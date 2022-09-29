@@ -18,29 +18,12 @@ a {
   box-sizing: border-box;
 }
 
-.hover-trigger .hover-target {
-  display: none;
-}
-
-.hover-trigger:hover .hover-target {
-  display: block;
-}
-
 .videos::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
-}
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.z-1000 {
-  z-index: 1000;
 }
 
 ::-webkit-scrollbar-thumb {

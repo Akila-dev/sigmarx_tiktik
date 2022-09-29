@@ -1,10 +1,10 @@
 {
-  "name": "sanity-backend",
+  "name": "sanitybackend",
   "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Sigma Z <akilapanunayan@gmail.com>",
+  "author": "JavaScript Mastery <javascriptmastery00@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
@@ -27,5 +27,9 @@
     "react-dom": "^17.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianhajdin/project_tiktik.git"
+  }
 }
