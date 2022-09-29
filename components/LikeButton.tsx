@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { MdFavorite } from "react-icons/md";
-import { NextPage } from "next";
+import React, { useEffect, useState } from 'react';
+import { MdFavorite } from 'react-icons/md';
+import { NextPage } from 'next';
 
-import useAuthStore from "../store/authStore";
+import useAuthStore from '../store/authStore';
 
 interface IProps {
+  likes: any;
+  flex: string;
   handleLike: () => void;
   handleDislike: () => void;
-  likes: any[];
 }
 
-const LikeButton: NextPage<IProps> = ({ likes, handleLike, handleDislike }) => {
+const LikeButton: NextPage<IProps> = ({ likes, flex, handleLike, handleDislike }) => {
   const [alreadyLiked, setAlreadyLiked] = useState(false);
   const { userProfile }: any = useAuthStore();
-  let filterLikes = likes?.filter(
-    (item: any) => item._ref === userProfile?._id
-  );
+  let filterLikes = likes?.filter((item: any) => item._ref === userProfile?._id);
 
   useEffect(() => {
     if (filterLikes?.length > 0) {
@@ -26,28 +25,19 @@ const LikeButton: NextPage<IProps> = ({ likes, handleLike, handleDislike }) => {
   }, [filterLikes, likes]);
 
   return (
-    <div className="relative cursor-pointer translate-y-[0.21rem]">
-      {alreadyLiked ? (
-        <div>
-          <MdFavorite className="text-[#f51997]" />
-          <p
-            className="text-xs lg:text-sm font-semibold text-black absolute left-[50%] p-1 top-[50%] translate-x-[-50%] translate-y-[-50%] rounded-full"
-            onClick={handleDislike}
-          >
-            {likes?.length || 0}
-          </p>
-        </div>
-      ) : (
-        <div>
-          <MdFavorite className="text-white" />
-          <p
-            className="text-xs lg:text-sm font-semibold text-black absolute left-[50%] p-1 top-[50%] translate-x-[-50%] translate-y-[-50%] rounded-full w-full h-full pt-2 lg:pt-3"
-            onClick={handleLike}
-          >
-            {likes?.length || 0}
-          </p>
-        </div>
-      )}
+    <div className={`${flex} gap-6`}>
+      <div className='mt-4 flex flex-col justify-center items-center cursor-pointer'>
+        {alreadyLiked ? (
+          <div className='bg-primary rounded-full p-2 md:p-4 text-[#F51997] ' onClick={handleDislike} >
+            <MdFavorite className='text-lg md:text-2xl' />
+          </div>
+        ) : (
+          <div className='bg-primary rounded-full p-2 md:p-4 ' onClick={handleLike} >
+            <MdFavorite className='text-lg md:text-2xl' />
+          </div>
+        )}
+        <p className='text-md font-semibold '>{likes?.length || 0}</p>
+      </div>
     </div>
   );
 };
